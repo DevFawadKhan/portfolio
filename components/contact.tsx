@@ -170,8 +170,8 @@ const Contact = () => {
               {
                 icon: Linkedin,
                 label: "LinkedIn",
-                value: "muhammad-fawad-khan",
-                href: "https://www.linkedin.com/in/muhammad-fawad-khan-b19a50310/",
+                value: "muhammad-fawad-saleem",
+                href: "https://www.linkedin.com/in/muhammad-fawad-saleem-b19a50310/",
               },
               {
                 icon: Github,

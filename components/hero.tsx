@@ -36,7 +36,7 @@ const Hero = () => {
         {/* Main heading */}
         <motion.div variants={itemVariants} className="mb-6">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-4 text-balance">
-            Muhammad Fawad
+            Muhammad Fawad Saleem
           </h1>
           <p className="text-xl md:text-2xl text-accent font-semibold">
             Software Engineer
@@ -91,7 +91,7 @@ const Hero = () => {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/muhammad-fawad-khan-b19a50310/"
+            href="https://www.linkedin.com/in/muhammad-fawad-saleem-b19a50310/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-lg bg-card hover:bg-card/80 text-foreground transition-all duration-300 border border-border hover:border-accent/30"

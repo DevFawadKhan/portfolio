@@ -9,7 +9,7 @@ const Footer = () => {
 
     const socialLinks = [
     { icon: Github, href: "https://github.com/DevFawadKhan", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/muhammad-fawad-khan-b19a50310/", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/muhammad-fawad-saleem-b19a50310/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:mfawadkhan05@gmail.com", label: "Email" },
   ];
 
@@ -41,6 +41,7 @@ const Footer = () => {
                   { name: "About", href: "#about" },
                   { name: "Projects", href: "#projects" },
                   { name: "Experience", href: "#experience" },
+                  { name: "Certifications", href: "#certifications" },
                   { name: "Contact", href: "#contact" },
                 ].map((link) => (
                   <li key={link.name}>

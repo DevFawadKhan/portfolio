@@ -1,12 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/projects-data";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Maximize2, Lock } from "lucide-react";
 import Image from "next/image";
+import ProjectDetailDialog from "@/components/project-detail-dialog";
 
 const Projects = () => {
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<
+    number | null
+  >(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,29 +53,43 @@ const Projects = () => {
 
           {/* Projects grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
+            {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
                 className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 backdrop-blur-sm hover:border-accent/50 transition-all duration-500 h-full flex flex-col shadow-lg hover:shadow-accent/5"
                 whileHover={{ y: -12 }}
               >
+                <button
+                  type="button"
+                  aria-label={`View full image for ${project.title}`}
+                  onClick={() => setSelectedProjectIndex(index)}
+                  className="absolute inset-0 z-10 cursor-zoom-in rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
+                />
+
                 {/* Project image */}
-                <div className="relative w-full h-56 overflow-hidden">
+                <div className="relative w-full h-56 overflow-hidden pointer-events-none">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={project.id === "rentcar-app"}
-                    unoptimized={project.id === "rentcar-app"}
+                    priority={index < 2}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                  
+                  {/* Fullscreen hover badge */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-95 group-hover:scale-100">
+                    <span className="flex items-center gap-2 rounded-full border border-white/20 bg-black/75 px-4 py-2 text-xs font-semibold text-white shadow-xl backdrop-blur-md">
+                      <Maximize2 className="size-3.5 text-accent" />
+                      View Fullscreen
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-7 flex-1 flex flex-col">
+                <div className="p-7 flex-1 flex flex-col pointer-events-none">
                   <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h3>
@@ -90,7 +110,7 @@ const Projects = () => {
                   </div>
 
                   {/* Links */}
-                  <div className="mt-auto pt-6 border-t border-border/50">
+                  <div className="relative z-20 mt-auto pt-6 border-t border-border/50 pointer-events-auto">
                     {project.link ? (
                       <Button
                         size="lg"
@@ -103,7 +123,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          Live Demo
+                          {project.linkLabel ?? "Live Demo"}
                         </a>
                       </Button>
                     ) : (
@@ -111,9 +131,16 @@ const Projects = () => {
                         size="lg"
                         variant="secondary"
                         disabled
-                        className="w-full gap-2 opacity-50 cursor-not-allowed"
+                        className="w-full gap-2 opacity-60 cursor-not-allowed"
                       >
-                        Live Demo Coming Soon
+                        {project.disabledLabel ? (
+                          <>
+                            <Lock className="w-4 h-4" />
+                            {project.disabledLabel}
+                          </>
+                        ) : (
+                          "Live Demo Coming Soon"
+                        )}
                       </Button>
                     )}
                   </div>
@@ -123,6 +150,13 @@ const Projects = () => {
           </div>
         </motion.div>
       </div>
+
+      <ProjectDetailDialog
+        projects={featuredProjects}
+        selectedIndex={selectedProjectIndex}
+        onSelect={setSelectedProjectIndex}
+        onClose={() => setSelectedProjectIndex(null)}
+      />
     </section>
   );
 };

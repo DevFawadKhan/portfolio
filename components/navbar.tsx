@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
+    { name: "Certifications", href: "#certifications" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
   ];
@@ -32,10 +33,10 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
     >
-      {/* Scroll Progress Bar */}
+      {/* Scroll Progress Ribbon Line */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent origin-left"
-        style={{ scaleX }}
+        className="absolute -bottom-px left-0 right-0 h-[2px] bg-linear-to-r from-blue-600 via-accent to-sky-400 shadow-[0_0_12px_rgba(96,165,250,0.85)] z-50 pointer-events-none"
+        style={{ scaleX, transformOrigin: "0% 50%" }}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

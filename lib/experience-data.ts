@@ -10,10 +10,38 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    id: "nizron-international",
+    title: "Full Stack Engineer",
+    company: "Nizron International Technologies",
+    duration: "Aug 2026 - Present",
+    description:
+      "Lead end-to-end project delivery, from gathering client requirements and defining project workflows to coordinating timelines and maintaining software systems.",
+    achievements: [
+      "Manage the development team and coordinate end-to-end project delivery",
+      "Gather requirements from clients and maintain communication through project meetings",
+      "Define project flows and establish delivery timelines",
+      "Support software maintenance and database backups",
+    ],
+    order: 1,
+  },
+  {
+    id: "systems-limited",
+    title: "PK Cloud App Dev & Maintenance Intern",
+    company: "Systems Limited",
+    duration: "Jun 22, 2026 - Aug 20, 2026",
+    description:
+      "Worked on PK Cloud application development and maintenance, gaining experience with software development methodologies, processes, and modern tools.",
+    achievements: [
+      "Contributed to cloud application development and maintenance",
+      "Gained hands-on experience with software development processes and tools",
+    ],
+    order: 2,
+  },
+  {
     id: "1decimal",
     title: "Fullstack Developer",
     company: "Decimal solution",
-    duration: "Jan 2026 - Present",
+    duration: "Jan 2026 - May 2026",
     description:
       "Integrated front-end and back-end components, orchestrating end-to-end development and ensuring a cohesive user experience across the application. Conducted rigorous testing, debugging, and optimization procedures.",
     achievements: [
@@ -22,7 +50,7 @@ export const experience: Experience[] = [
       "Ensured optimal performance across platforms and devices",
       "Deployed the application on cloud infrastructure",
     ],
-    order: 1,
+    order: 3,
   },
   {
     id: "vorniqo",
@@ -37,7 +65,7 @@ export const experience: Experience[] = [
       "Developed business features like promo codes and reservation tracking",
       "Optimized APIs and database performance for scalable business solutions",
     ],
-    order: 2,
+    order: 4,
   },
   {
     id: "structures",
@@ -52,6 +80,6 @@ export const experience: Experience[] = [
       "Conducted rigorous testing, debugging, and optimization procedures",
       "Guaranteed high-quality performance across multiple platforms and devices",
     ],
-    order: 3,
+    order: 5,
   },
 ];

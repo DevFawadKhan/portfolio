@@ -55,7 +55,7 @@ const Skills = () => {
                 {/* Top Border Accent */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="flex flex-col items-center text-center mb-8">
+                <div className="flex flex-col items-center text-center mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-4 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 shadow-inner">
                     {skillGroup.category === "Frontend" && <Layout className="w-8 h-8" />}
                     {skillGroup.category === "Backend" && <Server className="w-8 h-8" />}
@@ -67,7 +67,7 @@ const Skills = () => {
                   </h3>
                 </div>
                 
-                <div className="flex flex-wrap gap-2.5 mt-auto justify-center">
+                <div className="flex flex-wrap gap-2.5 justify-center content-start flex-1">
                   {skillGroup.skills.map((skill) => (
                     <span
                       key={skill}

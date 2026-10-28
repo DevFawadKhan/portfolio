@@ -6,12 +6,113 @@ export interface Project {
   image: string;
   tags: string[];
   link?: string;
+  linkLabel?: string;
+  disabledLabel?: string;
   github?: string;
   featured: boolean;
   order: number;
 }
 
 export const projects: Project[] = [
+  {
+    id: "pel-mobile-app",
+    title: "PEL Mobile App",
+    shortDescription: "Field operations and employee attendance",
+    description:
+      "A mobile app for field teams to record attendance, complete HSE safety checklists, and submit daily progress, vehicle, and plantation reports.",
+    image: "/project/PEL-mobile-app.webp",
+    tags: ["React Native", "Expo"],
+    link: "https://play.google.com/store/apps/details?id=com.synercreatix.pelerp&pcampaignid=web_share",
+    featured: true,
+    order: 1,
+  },
+  {
+    id: "pel-erp",
+    title: "PEL ERP",
+    shortDescription: "Enterprise resource planning for PEL",
+    description:
+      "A business operations platform covering HR and leave management, projects management,fleet management, fleet tracking, finance, messaging, role-based access, and direct reporting.",
+    image: "/project/PEL-ERP.webp",
+    tags: [
+      "React",
+      "TanStack Router",
+      "TanStack Query",
+      "shadcn/ui",
+      "NestJS",
+      "PostgreSQL",
+      "Drizzle ORM",
+    ],
+    link: "https://pepl.com.pk/",
+    featured: true,
+    order: 2,
+  },
+  {
+    id: "flash-mobile-app",
+    title: "Flash Security Mobile App",
+    shortDescription: "Mobile attendance for security teams",
+    description:
+      "Employees can check in and out with automatically captured date and time, submit photo-supported attendance and leave requests, and review attendance history by date.",
+    image: "/project/Flash-mobile-app.webp",
+    tags: ["React Native", "Expo"],
+    link: "https://play.google.com/store/apps/details?id=com.flashtech.security&pcampaignid=web_share",
+    featured: true,
+    order: 3,
+  },
+  {
+    id: "flash-erp",
+    title: "Flash Security ERP",
+    shortDescription: "Security workforce operations platform",
+    description:
+      "An ERP for reviewing individual and company-wide attendance, monitoring missed check-ins and expiring CNICs, approving leave, managing finance and inventory, and securely storing employee documents.",
+    image: "/project/Flash-ERP.webp",
+    tags: [
+      "Ant Design",
+      "Next.js",
+      "NestJS",
+      "PostgreSQL",
+      "Drizzle ORM",
+    ],
+    disabledLabel: "Internal System",
+    featured: true,
+    order: 4,
+  },
+  {
+    id: "swing-x-mobile-app",
+    title: "Swing X Mobile App",
+    shortDescription: "Golf bay bookings and restaurant orders",
+    description:
+      "A golf club app for checking bay availability, booking reservations, exploring ball packages and food deals, and ordering from the golf restaurant.",
+    image: "/project/Screenshot 2026-10-28 215202.png",
+    tags: ["React Native", "Expo", "NativeWind"],
+    link: "https://play.google.com/store/apps/details?id=com.pelerpofficial.golfmobile&pcampaignid=web_share",
+    linkLabel: "Download Golf X",
+    featured: true,
+    order: 5,
+  },
+  {
+    id: "swing-x-web-portal",
+    title: "Swing X Web Portal",
+    shortDescription: "Golf club and business management portal",
+    description:
+      "A management portal for bays, ball packages, customers, reservations, restaurant inventory, deals, discounts, sessions, invoices, payments, and user roles.",
+    image: "/project/swing-x-portal.webp",
+    tags: ["React", "Vite", "Tailwind CSS", "NestJS", "PostgreSQL", "Prisma"],
+    link: "https://swing-x-client-production.up.railway.app",
+    featured: true,
+    order: 6,
+  },
+  {
+    id: "valor-erp",
+    title: "Valor ERP",
+    shortDescription: "ERP for manufacturing and business operations",
+    description:
+      "An ERP spanning HR, manufacturing, food and finishing, finance, FBR invoicing, and procurement, with sales, claims, delivery, receivables, payables, and website management.",
+    image: "/project/Valor-ERP.webp",
+    tags: ["React", "Vite", "Ant Design", "Prisma", "PostgreSQL", "NestJS"],
+    link: "https://valor.com.pk/",
+    featured: true,
+    order: 7,
+  },
   {
     id: "hsq-website",
     title: "HSQ Towers Website",
@@ -22,7 +123,7 @@ export const projects: Project[] = [
     tags: ["React", "Tailwind CSS", "Zustand", "Framer Motion", "React Query"],
     link: "https://www.hsqtowers.com/",
     featured: true,
-    order: 1,
+    order: 8,
   },
   {
     id: "hsq-crm",
@@ -34,7 +135,7 @@ export const projects: Project[] = [
     tags: ["React", "Tailwind CSS", "MongoDB", "Express.js", "Shadcn/UI"],
     link: "https://hsqtower.org",
     featured: true,
-    order: 2,
+    order: 9,
   },
   {
     id: "vendorcall",
@@ -46,7 +147,7 @@ export const projects: Project[] = [
     tags: ["React", "Node.js", "PropertyTech", "B2B SaaS"],
     link: "https://www.vendorcall.com/",
     featured: true,
-    order: 3,
+    order: 10,
   },
   {
     id: "corent-ai",
@@ -58,19 +159,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Shadcn/UI", "PostgreSQL"],
     link: "https://corent.ai/",
     featured: true,
-    order: 4,
-  },
-  {
-    id: "corent-io",
-    title: "Corent IO",
-    shortDescription: "SaaS Transformation Platform",
-    description:
-      "Engineered core modules for a SaaS-ification platform, enabling legacy software vendors to transition into multi-tenant SaaS models. Optimized tenant-lifecycle management and resource-allocation algorithms to ensure seamless scalability and operational efficiency.",
-    image: "/project/corentio.png",
-    tags: ["Next.js", "PostgreSQL", "Shadcn/UI"],
-    link: "https://corent.io/",
-    featured: true,
-    order: 5,
+    order: 11,
   },
   {
     id: "hotel-management",
@@ -82,40 +171,6 @@ export const projects: Project[] = [
     tags: ["React", "JSX", "Bootstrap", "MongoDB"],
     link: "https://dev.d3f5bhemmrxzu7.amplifyapp.com/customer",
     featured: true,
-    order: 6,
-  },
-  {
-    id: "publish-cleaning",
-    title: "Publish Cleaning",
-    shortDescription: "Cleaning Services Platform",
-    description:
-      "Designed and implemented a sleek, high-performance service-booking platform for professional cleaning operations. Focused on real-time scheduling logic and a frictionless checkout flow, resulting in enhanced user engagement and service-conversion rates.",
-    image: "/project/publishcleaning.png",
-    tags: ["React", "Service Booking", "UI/UX", "Netlify"],
-    link: "https://zippy-paprenjak-bff60c.netlify.app/",
-    featured: true,
-    order: 7,
-  },
-  {
-    id: "rentcar-app",
-    title: "Rentcar Mobile App",
-    shortDescription: "Admin Fleet & Tracking Solution",
-    description:
-      "Engineered an admin-centric car rental platform allowing fleet owners to list and manage vehicles with ease. Developed a flexible rental engine supporting daily, monthly, and hourly billing, alongside a real-time user verification system and live GPS tracking for owners to monitor vehicle location and security in real-time.",
-    image: "/project/rentcar.jpg",
-    tags: ["React Native", "Expo", "Nativewind", "Node.js", "MongoDB"],
-    featured: true,
-    order: 8,
-  },
-  {
-    id: "internship-certificate",
-    title: "Software Internship",
-    shortDescription: "Professional Development",
-    description:
-      "Successfully concluded an intensive software engineering internship, focusing on full-stack MERN development. Executed rigorous testing-and-optimization procedures and collaborated on high-quality codebase maintenance for enterprise-ready applications.",
-    image: "/project/certificate.jpeg",
-    tags: ["Professional", "Soft Skills", "Full-Stack Dev", "Impact"],
-    featured: true,
-    order: 9,
+    order: 12,
   },
 ];
